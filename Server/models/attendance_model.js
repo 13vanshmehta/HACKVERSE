@@ -13,7 +13,7 @@ const attendanceSchema = new mongoose.Schema({
     student: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'Student' // Reference to the Student model
+        ref: 'Student' 
     },
     remark: {
         type: String,
@@ -29,6 +29,5 @@ const attendanceSchema = new mongoose.Schema({
     }]
 });
 
-// Export the model
 const Attendance = mongoose.model("Attendance", attendanceSchema);
 module.exports = Attendance;

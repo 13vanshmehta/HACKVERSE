@@ -9,18 +9,16 @@ const PORT= process.env.PORT || 3000
 const app = express();
 
 // Inbuilt Middlewares
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.json());
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // still keep this for JSON requests
 // Middlewares 
 
 // Routes
-app.use('/', (req, res) => {
-    res.send('Testing Server "http://localhost:5000/" ');
-});
+const teacherRoutes = require('./routers/teacher_router');
+app.use('/api/teachers', teacherRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
