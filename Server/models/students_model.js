@@ -21,6 +21,10 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true
     }],
+    Password: {
+        type: String,
+        required: true
+    },
     PhoneNumber: [{
         type: Number,
         required: true
